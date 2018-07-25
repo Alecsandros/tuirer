@@ -9,6 +9,12 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <h1>oi</h1>
+    <h1>Tuirer</h1>
+    <form action="">
+        {% csrf_token %}
+        <input type="text">
+        <input type="submit">
+        <p>{{ now }}</p>
+    </form>
 </body>
 </html>
