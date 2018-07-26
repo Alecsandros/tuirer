@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id="nav">
+        <h1>Tuirerr</h1>
+        <p>{{ now }}</p>
+    </div>
+    <p>
+        {% block body %}
+        <h1>Oi</h1>
+        {% endblock %}
+    </p>
+</body>
+</html>

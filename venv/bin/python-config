@@ -1,4 +1,4 @@
-#!/home/CIN/jornadaciti/Desktop/Citi/tuirer/venv/bin/python
+#!/home/alecsandro/Projetos/tuirer/venv/bin/python
 
 import sys
 import getopt
