@@ -1,5 +1,5 @@
 body {
-    background-color: gold;
+    background-color: cadetblue;
 }
 
 #nav {
@@ -8,4 +8,5 @@ body {
     justify-content: space-around;
     background-color: azure;
     font-family: sans-serif;
+    align-items: center;
 }
