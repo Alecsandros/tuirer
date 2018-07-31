@@ -4,19 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <div id="nav">
-        <h1>Tuirerr</h1>
-        {% include 'includes/menu.html' %}
-    </div>
-    <p>
-        {% block body %}
-        <h1>Oi</h1>
-        {% endblock %}
-    </p>
+    {% include 'includes/menu.html' %}
+    <div id="gambiarra">Insira sua gambiarra aqui :D</div>
+    {% block body %}
+        Seu content aqui
+    {% endblock %}
 </body>
 </html>

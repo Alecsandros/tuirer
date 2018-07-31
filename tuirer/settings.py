@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'core',
     'tuites',
     'users',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

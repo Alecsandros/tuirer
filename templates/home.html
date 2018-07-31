@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block body %}
-    Olá mundo!
-
     {% for tuite in tuites %}
-        <div style="color: white;">
-            {{ tuite }}
+        <div id="tuite">
+            <div id="user-block">
+                <img src="{% static 'img/pam.jpg' %}" alt="">
+                <h3 id="username"> Username</h3>
+            </div>
+            <div id="tuite-text">
+                {{ tuite }}
+            </div>
+            <div id="reactions">
+                <img src="{% static 'img/heart.svg' %}" alt="">
+                <p id="score"> 0 </p>
+            </div>
         </div>
     {% endfor %}
 {% endblock %}

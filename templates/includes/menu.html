@@ -1,4 +1,11 @@
-<nav>
-    <a href="{% url 'index' %}">Início</a>
-    <a href="{% url 'post_tuite' %}">Postar Tuíte</a>
+{% load staticfiles %}
+<nav id="nav">
+    <div id="logo">
+        <img src="{% static 'img/albatross.svg' %}" alt="">
+        <h1 id="logomarca">Tuirer</h1>
+    </div>
+    <div id="nav-buttons">
+        <a href="{% url 'index' %}">Início</a>
+        <a href="{% url 'post_tuite' %}">Postar Tuíte</a>
+    </div>
 </nav>

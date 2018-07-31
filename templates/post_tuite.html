@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 
 {%block body %}
     {% if error %} 
@@ -7,9 +8,27 @@
     {% if sucess %} 
         <p class="error"> {{ sucess }} </p> 
     {% endif %}
-    <form method="post">
+
+    {% if messages %}
+        {% for message in messages %}
+            <p class="message"> {{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" id="form">
         {% csrf_token %}
-        <input name="content" placeholder="O que você está pensando?">
+        {% for field in form %}
+            <label for="{ field.id_for_label }}"></label>
+            {% render_field field class="post-tuite-field" %}
+            <p> {{ field.help_text }}</p> 
+            {{ field.errors }}
+        {% endfor %}
         <input type="submit" value="Postar Tuite">
     </form>
+
+    {% if error %}
+        <script>
+            alert('{{ error }}')
+        </script>
+    {% endif %}
 {% endblock %}
