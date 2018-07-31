@@ -9,23 +9,23 @@
         <p class="error"> {{ sucess }} </p> 
     {% endif %}
 
+    
+    <form method="post" id="form">
+        {% csrf_token %}
+        <p id="help_text">Turite Algo: </p>
+        {% for field in form %}
+        <label for="{ field.id_for_label }}"></label>
+        {% render_field field class="post-tuite-field" %}
+        {{ field.errors }}
+        {% endfor %}
+        <input type="submit" value="Postar Turite">
+    </form>
     {% if messages %}
         {% for message in messages %}
             <p class="message"> {{ message }}</p>
         {% endfor %}
     {% endif %}
-
-    <form method="post" id="form">
-        {% csrf_token %}
-        {% for field in form %}
-            <label for="{ field.id_for_label }}"></label>
-            {% render_field field class="post-tuite-field" %}
-            <p> {{ field.help_text }}</p> 
-            {{ field.errors }}
-        {% endfor %}
-        <input type="submit" value="Postar Tuite">
-    </form>
-
+    
     {% if error %}
         <script>
             alert('{{ error }}')

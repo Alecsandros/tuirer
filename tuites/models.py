@@ -11,7 +11,7 @@ class Tuite(models.Model):
     objects = TuitesManager()
 
     def __str__(self):
-        return f'{self.author.username}: {self.content}'
+        return f'{self.content}'
 
     class Meta:
         ordering = ('content', )

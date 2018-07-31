@@ -6,6 +6,7 @@
     </div>
     <div id="nav-buttons">
         <a href="{% url 'index' %}">Início</a>
-        <a href="{% url 'post_tuite' %}">Postar Tuíte</a>
+        <a href="{% url 'post_tuite' %}">Postar Turite</a>
+        <a href="{% url 'profile' request.user.pk %}"> {{ request.user.username }}</a>
     </div>
 </nav>

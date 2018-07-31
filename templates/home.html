@@ -5,8 +5,8 @@
     {% for tuite in tuites %}
         <div id="tuite">
             <div id="user-block">
-                <img src="{% static 'img/pam.jpg' %}" alt="">
-                <h3 id="username"> Username</h3>
+                <img src="{{ tuite.author.picture.url }}" alt="">
+                <h3 id="username"> {{ tuite.author }}</h3>
             </div>
             <div id="tuite-text">
                 {{ tuite }}

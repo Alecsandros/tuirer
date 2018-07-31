@@ -1,5 +1,13 @@
-<div class="card">
-    <h4>Tuite</h4>
-    <p>Pai tenho fome</p>
-    <p>Autor: {{ author }}</p>
+<div id="tuite">
+    <div id="user-block">
+        <img src="{{ tuite.author.picture.url }}" alt="">
+        <h3 id="username"> {{ tuite.author }}</h3>
+    </div>
+    <div id="tuite-text">
+        {{ tuite }}
+    </div>
+    <div id="reactions">
+        <img src="{% static 'img/heart.svg' %}" alt="">
+        <p id="score"> 0 </p>
+    </div>
 </div>

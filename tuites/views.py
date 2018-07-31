@@ -12,18 +12,21 @@ class PostTuiteView(LoginRequiredMixin, CreateView):
     template_name = 'post_tuite.html'
     form_class = PostTuiteForm
     success_url = reverse_lazy('post_tuite')
+    
 
     def get_initial(self):
         return {
             'user': self.request.user
         }
 
+
     def form_valid(self, form):
         messages.success(
             self.request,
-            'Você postu um Tuite!'
+            'Você postou um Turite!'
         )
         return super().form_valid(form)
+
 
 # Create your views here.
 
