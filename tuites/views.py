@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from tuites.models import Tuite
-from django.views.generic import CreateView
+from django.views.generic import CreateView, RedirectView
 from django.contrib import messages
 from django.urls import reverse_lazy
 from tuites.forms import PostTuiteForm
@@ -11,7 +11,7 @@ class PostTuiteView(LoginRequiredMixin, CreateView):
     model = Tuite
     template_name = 'post_tuite.html'
     form_class = PostTuiteForm
-    success_url = reverse_lazy('post_tuite')
+    success_url = reverse_lazy('tuites:post_tuite')
     
 
     def get_initial(self):
@@ -26,7 +26,6 @@ class PostTuiteView(LoginRequiredMixin, CreateView):
             'Você postou um Turite!'
         )
         return super().form_valid(form)
-
 
 # Create your views here.
 

@@ -90,6 +90,9 @@ DATABASES = {
 
 #Users
 AUTH_USER_MODEL = 'users.User'
+LOGIN_URL = 'index'
+LOGIN_REDIRECT_URL = 'tuites:post_tuite'
+LOGOUT_REDIRECT_URL = 'index'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

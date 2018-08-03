@@ -6,7 +6,7 @@
     <img id="profile-image" src="{{ profile.picture.url }}" width="100px">
     <p id="mail-text">E-mail: {{ profile.email }}</p>
     {% if profile == request.user %}
-        <a id="edit-link" href="{% url 'edit' request.user.pk %}">Editar Perfil</a>
+        <a id="edit-link" href="{% url 'users:edit' request.user.pk %}">Editar Perfil</a>
     {% endif %}
     <!--{{ profile.tuites.all }} -->
     {% for tuite in profile.tuites.all %}
