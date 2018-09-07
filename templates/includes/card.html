@@ -1,3 +1,5 @@
+{% load static %}
+
 <div id="tuite">
     <div id="user-block">
         <img src="{{ tuite.author.picture.url }}" alt="">
@@ -7,7 +9,10 @@
         {{ tuite }}
     </div>
     <div id="reactions">
-        <img src="{% static 'img/heart.svg' %}" alt="">
-        <p id="score"> 0 </p>
+        <p>{{ tuite.date_created }}</p>
+        <div>
+            <img src="{% static 'img/heart.svg' %}" alt="">
+            <p id="score">0</p>
+        </div>
     </div>
 </div>

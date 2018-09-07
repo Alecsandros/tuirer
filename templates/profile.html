@@ -2,26 +2,14 @@
 {% load staticfiles %}
 
 {% block body %}
-    
-    <img id="profile-image" src="{{ profile.picture.url }}" width="100px">
-    <p id="mail-text">E-mail: {{ profile.email }}</p>
+    <img src="{{ profile.picture.url }}" class="profile-image">
+    <p class="profile-text">Nome: {{ profile.username }}</p>
+    <p class="profile-text">E-mail: {{ profile.email }}</p>
     {% if profile == request.user %}
         <a id="edit-link" href="{% url 'users:edit' request.user.pk %}">Editar Perfil</a>
     {% endif %}
     <!--{{ profile.tuites.all }} -->
     {% for tuite in profile.tuites.all %}
-        <div id="tuite">
-            <div id="user-block">
-                <img src="{{ tuite.author.picture.url }}" alt="">
-                <h3 id="username"> {{ tuite.author }}</h3>
-            </div>
-            <div id="tuite-text">
-                {{ tuite }}
-            </div>
-            <div id="reactions">
-                <img src="{% static 'img/heart.svg' %}" alt="">
-                <p id="score"> 0 </p>
-            </div>
-        </div>
+        {% include 'includes/card.html' %}
     {% endfor %}
 {% endblock %}

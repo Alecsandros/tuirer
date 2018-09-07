@@ -2,19 +2,17 @@
 {% load staticfiles %}
 
 {% block body %}
-    {% for tuite in tuites %}
-        <div id="tuite">
-            <div id="user-block">
-                <img src="{{ tuite.author.picture.url }}" alt="">
-                <h3 id="username"> {{ tuite.author }}</h3>
-            </div>
-            <div id="tuite-text">
-                {{ tuite }}
-            </div>
-            <div id="reactions">
-                <img src="{% static 'img/heart.svg' %}" alt="">
-                <p id="score"> 0 </p>
-            </div>
-        </div>
-    {% endfor %}
+    {% load tuitesOrder %}
+    {% tuitesPostOrder as tuitesOrderList %}
+
+    {% if request.user.is_authenticated %}
+        {% for tuite in tuitesOrderList %}
+            {% include 'includes/card.html' %}
+        {% endfor %}
+    {% else %}
+        {% for tuite in tuitesOrderList|slice:"0:5" %}
+            {% include 'includes/card.html' %}
+        {% endfor %}
+    {% endif %}
+
 {% endblock %}

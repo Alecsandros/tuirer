@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block body %}
-    <a href="{% url 'users:profile' request.user.pk %}">Voltar para seu perfil</a>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Enviar">
-    </form>
+    <div class="card">
+        <div class="back-container">
+            <a href="{% url 'users:profile' request.user.pk %}">
+                <img src="{% static 'img/left-arrow.png' %}" alt="">
+                Voltar para seu perfil
+            </a>
+        </div>
+        <form method="post" enctype="multipart/form-data" class="edit-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Enviar" class="button">
+        </form>
+    </div>
 {% endblock %}
