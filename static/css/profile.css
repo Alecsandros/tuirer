@@ -1,0 +1,53 @@
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    width: 70%;
+}
+
+.profile-container > div {
+    width: 30%;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-container div:nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profile-container div:nth-child(3) {
+    align-items: flex-end;
+    padding-right: 30px;
+}
+
+.profile-container div div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.profile-text {
+    padding: 10px 0 10px 0;
+}
+
+.follow-button {
+    color: black;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 1px 1px 0 #ECECEC, 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.follow-button:hover {
+    color: white;
+    background: rgb(78, 76, 76);
+}

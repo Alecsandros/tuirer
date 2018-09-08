@@ -1,17 +1,32 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load following %}
 
 {% block body %}
-    <img src="{{ profile.picture.url }}" class="profile-image">
     {% if request.user.pk == profile.pk %}
         <h3>Bem vindo ao seu perfil!</h3>
     {% endif %}
-    <p class="profile-text">Nome: {{ profile.username }}</p>
-    <p class="profile-text">E-mail: {{ profile.email }}</p>
-    <p class="profile-text">Seguidores: {{ profile.followers }}</p>
-    {% if profile == request.user %}
-        <a id="edit-link" href="{% url 'users:edit' request.user.pk %}">Editar Perfil</a>
-    {% endif %}
+    <div class="profile-container">
+        <div>
+            <div>
+                <img src="{{ profile.picture.url }}" class="profile-image">
+            </div>
+            <div>
+                <h3 class="profile-text">{{ profile.username }}</h3>
+                <p class="profile-text">{{ profile.email }}</p>
+            </div>
+        </div>
+        <div>
+            <p class="profile-text">Seguidores: {{ profile.following_count }}</p>
+            <p class="profile-text">Seguindo: {{ profile.followers_count }}</p>
+        </div>
+        <div>
+            <a href="{% url 'users:follow' profile.pk %}" class="follow-button">{% followingBool profile.pk %}</a>
+            {% if profile == request.user %}
+                <a id="edit-link" href="{% url 'users:edit' request.user.pk %}">Editar Perfil</a>
+            {% endif %}
+        </div>
+    </div>
     <!--{{ profile.tuites.all }} -->
     {% for tuite in profile.tuites.all %}
         {% include 'includes/card.html' %}

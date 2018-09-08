@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.views.generic import DetailView, UpdateView, CreateView
 from users.models import User
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from users.mixins import ProfileAccessMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from users.forms import UserSignupForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import generic
 
 
 # Create your views here.
@@ -35,3 +37,18 @@ class UserSignupView(CreateView):
     form_class = UserSignupForm
     template_name = 'signup.html'
     success_url = reverse_lazy('tuites:post_tuite') 
+
+class FollowersListView(LoginRequiredMixin, generic.RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        user_pk = kwargs.get('pk')
+        user = User.objects.get(pk=user_pk)
+        request_user = self.request.user
+
+        followers = request_user.following.filter(pk=user_pk).exists()
+
+        if followers:
+            request_user.following.remove(user)
+        else:
+            request_user.following.add(user)
+
+        return reverse('users:profile', args=[user_pk])

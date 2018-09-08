@@ -211,10 +211,6 @@ button, input[type="submit"], input[type="reset"] {
     margin: 20px;
 }
 
-.profile-text {
-    padding: 10px 0 10px 0;
-}
-
 #edit-link {
     color: black;
     padding: 3px 5px 2px 5px;
