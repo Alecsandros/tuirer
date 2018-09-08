@@ -64,16 +64,24 @@ class SingleTuiteView(generic.DetailView):
     context_object_name = 'tuite'
 
 
-class LikeTuiteView(generic.RedirectView):
+class LikeTuiteView(LoginRequiredMixin, generic.RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         tuite_pk = kwargs.get('pk')
+
+        tuite = Tuite.objects.get(pk=tuite_pk)
+        url = self.request.META.get('HTTP_REFERER')
         
-        # Passos para implementação da curtida:
-        # 1. Checar se o usuário está logado, isso pode ser,
-        #    feito usando LoginRequiredMixin
-        # 2. Checar se o usuário já curtiu ou não este Tuite,
-        #    e enviar mensagem de erro caso verdadeiro
-        # 3. Computar a curtida no Tuite
-            # A mensagem abaixo é serve para feedback
+        user_already_liked = self.request.user.liked_tuites.filter(
+            pk__in=[tuite_pk]).exists()
+
+        if user_already_liked:
+            self.request.user.liked_tuites.remove(tuite)
+            messages.success(
+                self.request,
+                'Você descurtiu o Tuite!'
+            )
+            return url
+            
+        self.request.user.liked_tuites.add(tuite)
         messages.success(self.request, 'Você curtiu este Tuite!')
-        return reverse('tuites:tuite', args=[tuite_pk])
+        return url

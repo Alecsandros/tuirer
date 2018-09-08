@@ -108,18 +108,20 @@ body {
     justify-content: space-between;
 }
 
-#reactions div a img{
+#reactions div a i {
     transition: all 0.1s linear;
-    width: 15px;
     height: auto;
-    padding: 0 0 3px 10px;
+    margin: 0 5px 3px 0;
 }
 
-#reactions div a:hover img{
+#reactions div a:hover i{
     cursor: pointer;
     transform: scale(1.1);
 }
 
+.fas.fa-heart {
+    color: red;
+}
 
 #gambiarra {
     height: 40px;

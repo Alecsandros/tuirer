@@ -69,6 +69,7 @@ TEMPLATES = [
             ],
             'libraries':{
                 'tuitesOrder': 'templates.templatetags.tuitesOrder',
+                'user_liked': 'templates.templatetags.user_liked',
             }
         },
     },

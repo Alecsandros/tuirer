@@ -8,8 +8,8 @@ class User(AbstractUser):
     following = models.ManyToManyField('self', blank=True)
     picture = models.ImageField('Foto de perfil', default='img/blank-pic.png')
     following = models.ManyToManyField('self', blank = True)
-
-    #liked_tuites = models.ManyToManyField('tuites.Tuite', related_name='liked_by')
+    
+    liked_tuites = models.ManyToManyField('tuites.Tuite', related_name='liked_by')
     
     @property
     def followers_count(self):

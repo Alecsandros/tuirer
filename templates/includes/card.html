@@ -1,4 +1,5 @@
 {% load static %}
+{% load user_liked %}
 
 <div id="tuite">
     <div id="user-block">
@@ -11,7 +12,9 @@
     <div id="reactions">
         <p>{{ tuite.date_created }}</p>
         <div>
-            <a href="{% url 'tuites:like' tuite.id %}"> 0 <img src="{% static 'img/heart.svg' %}" alt=""></a>
+            <a href="{% url 'tuites:like' tuite.id %}" class="like-tuite">
+                <i class="{% liked_tuite_heart_icon %}"></i> {{ tuite.likes_count }}
+            </a>
         </div>
     </div>
 </div>

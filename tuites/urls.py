@@ -6,7 +6,7 @@ app_name = 'tuites'
 
 urlpatterns = [
     path('postar/', PostTuiteView.as_view(), name='post_tuite'),
-    path('tuites', ListTuiteView.as_view(), name='list'),
+    path('tuites', ListTuiteView.as_view(), name='home'),
     path('tuite/<int:pk>', SingleTuiteView.as_view(), name='tuite'),
 
     # Actions
