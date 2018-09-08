@@ -79,6 +79,16 @@ body {
     margin: 0 10px 0 0;
 }
 
+#user-block a {
+    color: black;
+    font-size: 1.2rem;
+}
+
+#user-block a:hover {
+    color: rgb(88, 88, 88);
+    font-size: 1.2rem;
+}
+
 #tuite-text {
     width: 90%;
     padding: 20px 0 20px 0;

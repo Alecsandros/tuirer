@@ -1,9 +1,9 @@
 {% load staticfiles %}
 <nav id="nav">
-    <div id="logo">
+    <a href="{% url 'index' %}" id="logo">
         <img src="{% static 'img/albatross.svg' %}" alt="">
         <h1 id="logomarca">Tuirer</h1>
-    </div>
+    </a>
     <div id="nav-buttons">
         <a href="{% url 'index' %}">Início</a>
         <a href="{% url 'tuites:post_tuite' %}">Postar Turite</a>

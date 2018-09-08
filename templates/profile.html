@@ -8,7 +8,7 @@
     {% endif %}
     <p class="profile-text">Nome: {{ profile.username }}</p>
     <p class="profile-text">E-mail: {{ profile.email }}</p>
-    <p class="profile-text">Seguidores: {{ followers }}</p>
+    <p class="profile-text">Seguidores: {{ profile.followers }}</p>
     {% if profile == request.user %}
         <a id="edit-link" href="{% url 'users:edit' request.user.pk %}">Editar Perfil</a>
     {% endif %}

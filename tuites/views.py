@@ -69,7 +69,7 @@ class LikeTuiteView(LoginRequiredMixin, generic.RedirectView):
         tuite_pk = kwargs.get('pk')
 
         tuite = Tuite.objects.get(pk=tuite_pk)
-        url = self.request.META.get('HTTP_REFERER')
+        url = tuite
         
         user_already_liked = self.request.user.liked_tuites.filter(
             pk__in=[tuite_pk]).exists()
@@ -80,8 +80,8 @@ class LikeTuiteView(LoginRequiredMixin, generic.RedirectView):
                 self.request,
                 'Você descurtiu o Tuite!'
             )
-            return url
+            return reverse('tuites:tuite', args=[tuite_pk])
             
         self.request.user.liked_tuites.add(tuite)
         messages.success(self.request, 'Você curtiu este Tuite!')
-        return url
+        return reverse('tuites:tuite', args=[tuite_pk])

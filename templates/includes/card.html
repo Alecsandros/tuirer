@@ -4,7 +4,7 @@
 <div id="tuite">
     <div id="user-block">
         <img src="{{ tuite.author.picture.url }}" alt="">
-        <h3 id="username"> {{ tuite.author }}</h3>
+        <a href="{% url 'users:profile' tuite.author.pk %}" id="username"> {{ tuite.author }}</a>
     </div>
     <div id="tuite-text">
         {{ tuite }}
