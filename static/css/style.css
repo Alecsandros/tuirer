@@ -101,17 +101,25 @@ body {
     padding: 20px 0 20px 0;
 }
 
-#reactions div img{
+#reactions div a {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#reactions div a img{
     transition: all 0.1s linear;
     width: 15px;
     height: auto;
-    padding: 0 10px 3px 0;
+    padding: 0 0 3px 10px;
 }
 
-#reactions div img:hover{
+#reactions div a:hover img{
     cursor: pointer;
     transform: scale(1.1);
 }
+
 
 #gambiarra {
     height: 40px;
@@ -205,4 +213,10 @@ button, input[type="submit"], input[type="reset"] {
 
 a, u {
     text-decoration: none;
+}
+
+#single-tuite-back {
+    width: 70%;
+    padding-bottom: 0;
+    padding-top: 20px;
 }

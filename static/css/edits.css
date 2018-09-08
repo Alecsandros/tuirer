@@ -11,7 +11,7 @@
     border-radius: 10px;
 }
 
-.card .back-container {
+.back-container {
     width: 100%;
     flex-direction: row;
     display: flex;
@@ -20,13 +20,13 @@
     padding: 0 0 10px 0;
 }
 
-.card .back-container a {
+.back-container a {
     display: flex;
     align-items: center;
     color: black;
 }
 
-.card .back-container a img {
+.back-container a img {
     width: 15px;
     margin: 0 10px 0 0;
 }

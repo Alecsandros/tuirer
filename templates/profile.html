@@ -3,8 +3,12 @@
 
 {% block body %}
     <img src="{{ profile.picture.url }}" class="profile-image">
+    {% if request.user.pk == profile.pk %}
+        <h3>Bem vindo ao seu perfil!</h3>
+    {% endif %}
     <p class="profile-text">Nome: {{ profile.username }}</p>
     <p class="profile-text">E-mail: {{ profile.email }}</p>
+    <p class="profile-text">Seguidores: {{ followers }}</p>
     {% if profile == request.user %}
         <a id="edit-link" href="{% url 'users:edit' request.user.pk %}">Editar Perfil</a>
     {% endif %}

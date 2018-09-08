@@ -2,9 +2,10 @@ from django.shortcuts import render
 from tuites.models import Tuite
 from django.views.generic import CreateView, RedirectView
 from django.contrib import messages
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from tuites.forms import PostTuiteForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import generic
 
 
 class PostTuiteView(LoginRequiredMixin, CreateView):
@@ -48,3 +49,31 @@ def post_tuite(request):
             context['sucess'] = 'Tuite enviado com sucesso'
         
     return render(request, 'post_tuite.html', context)
+
+
+class ListTuiteView(generic.ListView):
+    template_name = 'home.html'
+    model = Tuite
+    context_object_name = 'tuites'
+
+
+
+class SingleTuiteView(generic.DetailView):
+    template_name = 'single_tuite.html'
+    model = Tuite
+    context_object_name = 'tuite'
+
+
+class LikeTuiteView(generic.RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        tuite_pk = kwargs.get('pk')
+        
+        # Passos para implementação da curtida:
+        # 1. Checar se o usuário está logado, isso pode ser,
+        #    feito usando LoginRequiredMixin
+        # 2. Checar se o usuário já curtiu ou não este Tuite,
+        #    e enviar mensagem de erro caso verdadeiro
+        # 3. Computar a curtida no Tuite
+            # A mensagem abaixo é serve para feedback
+        messages.success(self.request, 'Você curtiu este Tuite!')
+        return reverse('tuites:tuite', args=[tuite_pk])

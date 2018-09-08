@@ -11,8 +11,7 @@
     <div id="reactions">
         <p>{{ tuite.date_created }}</p>
         <div>
-            <img src="{% static 'img/heart.svg' %}" alt="">
-            <p id="score">0</p>
+            <a href="{% url 'tuites:like' tuite.id %}"> 0 <img src="{% static 'img/heart.svg' %}" alt=""></a>
         </div>
     </div>
 </div>

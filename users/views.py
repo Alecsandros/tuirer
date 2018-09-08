@@ -35,5 +35,3 @@ class UserSignupView(CreateView):
     form_class = UserSignupForm
     template_name = 'signup.html'
     success_url = reverse_lazy('tuites:post_tuite') 
-
-    
