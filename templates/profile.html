@@ -18,7 +18,7 @@
         </div>
         <div>
             <div class="profile-text1">
-                Seguidores: {{ profile.following_count }}
+                Seguindo: {{ profile.following_count }}
                 {% if profile.following_count > 0 %}
                     <div class="profile-text-list1">
                         {% for friend in profile.following.all %}
@@ -30,7 +30,7 @@
                     {% endif %}
             </div>
             <div class="profile-text2">
-                Seguindo: {{ profile.followers_count }}
+                Seguidores: {{ profile.followers_count }}
                 {% if profile.followers_count > 0 %}
                     <div class="profile-text-list2">
                         {% for friend in profile.followers.all %}

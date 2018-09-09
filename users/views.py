@@ -44,11 +44,15 @@ class FollowersListView(LoginRequiredMixin, generic.RedirectView):
         user = User.objects.get(pk=user_pk)
         request_user = self.request.user
 
-        followers = request_user.following.filter(pk=user_pk).exists()
+        followers = request_user.following.filter(pk=user_pk).all().exists()
 
         if followers:
+            print(request_user)
+            print(user)
             request_user.following.remove(user)
+            user.followers.remove(request_user)
         else:
             request_user.following.add(user)
+            user.followers.add(request_user)
 
         return reverse('users:profile', args=[user_pk])
