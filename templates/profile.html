@@ -43,10 +43,12 @@
             </div>
         </div>
         <div>
-            {% if profile == request.user %}
-                <a id="edit-link" href="{% url 'users:edit' request.user.pk %}">Editar Perfil</a>
-            {% else %}
-                <a href="{% url 'users:follow' profile.pk %}" class="follow-button">{% followingBool profile.pk %}</a>
+            {% if request.user.is_authenticated %}
+                {% if profile == request.user %}
+                    <a id="edit-link" href="{% url 'users:edit' request.user.pk %}">Editar Perfil</a>
+                {% else %}
+                    <a href="{% url 'users:follow' profile.pk %}" class="follow-button">{% followingBool profile.pk %}</a>
+                {% endif %}
             {% endif %}
         </div>
     </div>
