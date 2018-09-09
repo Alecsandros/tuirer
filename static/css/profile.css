@@ -16,26 +16,29 @@
     align-items: center;
 }
 
-.profile-container div:nth-child(1) {
+.profile-container > div:nth-child(1) {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 }
 
-.profile-container div:nth-child(3) {
+.profile-container > div:nth-child(3) {
     align-items: flex-end;
     padding-right: 30px;
 }
 
-.profile-container div div {
+.profile-container > div:nth-child(1) div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
 }
 
-.profile-text {
+.profile-text1,
+.profile-text2 {
+    transition: all 0.2s linear;
+    position: relative;
     padding: 10px 0 10px 0;
 }
 
@@ -50,4 +53,57 @@
 .follow-button:hover {
     color: white;
     background: rgb(78, 76, 76);
+}
+
+.profile-text-list1,
+.profile-text-list2 {
+    overflow: hidden;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    right: -123px;
+    width: 100px;
+    top: 0;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 1px 1px 0 #ECECEC, 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.profile-text1:hover,
+.profile-text2:hover {
+    cursor: pointer;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 1px 1px 0 #ECECEC, 0 1px 5px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.profile-text1:hover .profile-text-list1 {
+    display: flex;
+}
+
+.profile-text2:hover .profile-text-list2 {
+    display: flex;
+}
+
+.profile-text1:hover .profile-text2 {
+    display: none;
+    background: black !important;
+}
+
+.friend-text-list-cell {
+    padding: 5px 0;
+}
+
+.friend-text-list-cell a {
+    padding: 5px;
+    color: black;
+    margin: 0;
+}
+
+.friend-text-list-cell a:hover {
+    color: rgb(95, 95, 95);
 }

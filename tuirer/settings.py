@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,8 +26,23 @@ SECRET_KEY = '6!+jrdi_kknr0y#(t$#++fhb8y^vr11s2bis+msz#&mvf-wg$b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['turiter.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+    },
+} 
 
 # Application definition
 
@@ -148,3 +164,6 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 DEFAULT_FROM_EMAIL = 'oi@test.com'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ # função que retorna todas as variáveis que estão sendo usadas nesse arquivo
+django_heroku.settings(locals()) 

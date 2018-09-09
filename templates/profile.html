@@ -17,8 +17,26 @@
             </div>
         </div>
         <div>
-            <p class="profile-text">Seguidores: {{ profile.following_count }}</p>
-            <p class="profile-text">Seguindo: {{ profile.followers_count }}</p>
+            <div class="profile-text1">
+                Seguidores: {{ profile.following_count }}
+                <div class="profile-text-list1">
+                    {% for friend in profile.following.all %}
+                        <div class="friend-text-list-cell">
+                           <a href="{% url 'users:profile' friend.pk %}">{{ friend }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="profile-text2">
+                Seguindo: {{ profile.followers_count }}
+                <div class="profile-text-list2">
+                    {% for friend in profile.followers.all %}
+                        <div class="friend-text-list-cell">
+                           <a href="{% url 'users:profile' friend.pk %}">{{ friend }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
         <div>
             <a href="{% url 'users:follow' profile.pk %}" class="follow-button">{% followingBool profile.pk %}</a>
