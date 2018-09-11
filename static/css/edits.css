@@ -43,10 +43,6 @@
     margin: 10px 0;
 }
 
-.edit-form p span {
-    display: none;
-}
-
 .card input {
     color: black;
     padding: 3px 5px 2px 5px;
@@ -77,6 +73,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
@@ -86,8 +83,19 @@
     margin-top: 10px;
 }
 
-#login-card form span,
+#login-card form p span{
+    padding: 10px 0;   
+    font-size: 0.8rem;
+}
+
+#login-card form ul li {
+    font-size: 0.8rem;
+    list-style-type: none;
+}
+
 #login-card form ul,
-#login-card form p:nth-child(6){
-    display: none;
+.helptext {
+    padding: 0;
+    width: 100%;
+    margin: 0;
 }
