@@ -12,7 +12,7 @@ idna==2.6
 ipaddress==1.0.17
 keyring==10.6.0
 keyrings.alt==3.0
-Pillow==5.2.0
+Pillow==9.0.1
 psycopg2==2.7.5
 pycrypto==2.6.1
 pytz==2018.5
